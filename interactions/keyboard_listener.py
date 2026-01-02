@@ -1,13 +1,16 @@
 from pynput import keyboard
+from pynput.keyboard import Key, KeyCode
 
 
 class KeyboardListener():
 
-    def __init__(self, leader_key, directions):
+    def __init__(self, leader_key: Key, directions):
 
         self.leader_key = leader_key
         self.directions = directions
-        self.can_listen = False
+
+        self.pressed_keys: list[Key] = []
+
         self.listener = keyboard.Listener(
             on_press=self.on_press,
             on_release=self.on_release
@@ -20,15 +23,16 @@ class KeyboardListener():
 
     def on_press(self, key):
 
-        if key == self.leader_key:
-            self.can_listen = True
 
-        if not self.can_listen:
-            return
         print(key, type(key))
 
     def on_release(self, key):
+        pass
 
-        if key == self.leader_key:
-            self.can_listen = False
-        print(key, "released")
+
+    def can_listen(self) -> bool:
+
+        if self.leader_key in self.pressed_keys:
+            return True
+
+        return False

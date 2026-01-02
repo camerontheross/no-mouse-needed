@@ -1,20 +1,35 @@
 from pynput.mouse import Button, Controller
 
+from utils.vector2 import Vector2
+
 
 class MouseController():
 
     def __init__(self, sensitivity):
         self.mouse = Controller()
-        self.sensitivity = sensitivity
+        self.sensitivity: Vector2 = sensitivity
+        self.pressed_buttons: list[Button] = []
 
-    def move_mouse(self, x_delta, y_delta):
-        self.mouse.move(x_delta * self.sensitivity, y_delta * self.sensitivity)
+    def __del__(self):
 
-    def right_click(self):
-        pass
+        for button in self.pressed_buttons:
+            self.mouse.release(button)
 
-    def left_click(self):
-        pass
+    def move_mouse(self, direction: Vector2):
 
-    def middle_click(self):
-        pass
+        x_delta = direction.x * self.sensitivity.x
+        y_delta = direction.y * self.sensitivity.y
+
+        self.mouse.move(x_delta, y_delta)
+
+    def click(self, button: Button):
+        self.mouse.press(button=button)
+
+        if button not in self.pressed_buttons:
+            self.pressed_buttons.append(button)
+
+    def release(self, button: Button):
+        self.mouse.release(button=button)
+
+        if button in self.pressed_buttons:
+            self.pressed_buttons.remove(button)
