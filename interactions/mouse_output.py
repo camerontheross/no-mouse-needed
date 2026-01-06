@@ -3,11 +3,11 @@ from pynput.mouse import Button, Controller
 from utils.vector2 import Vector2
 
 
-class MouseController():
+class MouseOutput():
 
-    def __init__(self, sensitivity):
+    def __init__(self):
         self.mouse = Controller()
-        self.sensitivity: Vector2 = sensitivity
+        self.sensitivity: Vector2 = Vector2()
         self.pressed_buttons: list[Button] = []
 
     def __del__(self):
