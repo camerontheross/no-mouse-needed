@@ -1,15 +1,15 @@
 {
-  "leader":"None",
+  "leader":"ctrl_r",
   "sensitivity":1,
   "mouse_controls":{
 
-    "CURSOR_UP":"None",
-    "CURSOR_DOWN":"None",
-    "CURSOR_LEFT":"None",
-    "CURSOR_RIGHT":"None",
+    "CURSOR_UP":"w",
+    "CURSOR_DOWN":"s",
+    "CURSOR_LEFT":"a",
+    "CURSOR_RIGHT":"d",
 
-    "LEFT_CLICK":"None",
-    "RIGHT_CLICK":"None",
+    "LEFT_CLICK":"q",
+    "RIGHT_CLICK":"e",
     "MIDDLE_CLICK":"None",
   }
 
