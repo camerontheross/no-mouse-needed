@@ -3,9 +3,9 @@ from pynput import keyboard
 
 class KeyboardInput():
 
-    def __init__(self):
+    def __init__(self, leader: keyboard.Key):
 
-        self.leader_key = None
+        self.leader_key = leader
 
         self.key_buffer: list[keyboard.Key] = []
 

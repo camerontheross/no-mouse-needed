@@ -1,3 +1,8 @@
+from interactions.controller import Controller
 
 if __name__ == '__main__':
-    pass
+
+    con = Controller()
+
+    while True:
+        con.process_key_buffer()

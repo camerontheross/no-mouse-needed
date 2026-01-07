@@ -1,7 +1,9 @@
 {
-  "leader":"ctrl_r",
-  "sensitivity":1,
-  "mouse_controls":{
+
+  "leader":"<ctrl_r>",
+  "sensitivity":0.5,
+
+  "controls":{
 
     "CURSOR_UP":"w",
     "CURSOR_DOWN":"s",
@@ -10,7 +12,7 @@
 
     "LEFT_CLICK":"q",
     "RIGHT_CLICK":"e",
-    "MIDDLE_CLICK":"None",
+    "MIDDLE_CLICK":"r"
   }
 
 }

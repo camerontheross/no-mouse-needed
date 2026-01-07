@@ -7,7 +7,7 @@ class MouseOutput():
 
     def __init__(self):
         self.mouse = Controller()
-        self.sensitivity: Vector2 = Vector2()
+        self.sensitivity: Vector2 = Vector2(1, 1)
         self.pressed_buttons: list[Button] = []
 
     def __del__(self):
