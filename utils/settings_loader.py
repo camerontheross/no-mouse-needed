@@ -29,7 +29,27 @@ class SettingsLoader():
 
     def init_default_settings(self) -> dict:
 
-        return json.loads('')
+        default_settings = {
+            "leader": "<ctrl_r>",
+            "sensitivity": 0.5,
+            "controls": {
+
+                "CURSOR_UP": "w",
+                "CURSOR_DOWN": "s",
+                "CURSOR_LEFT": "a",
+                "CURSOR_RIGHT": "d",
+
+                "LEFT_CLICK": "q",
+                "RIGHT_CLICK": "e",
+                "MIDDLE_CLICK": "r"
+            }
+        }
+
+        with open('settings.json', 'w') as settings_file:
+
+            json.dump(default_settings, settings_file, indent=4)
+
+        return default_settings
 
     def get_controls(self) -> dict:
 
@@ -50,6 +70,22 @@ class SettingsLoader():
             print("Returning default controls.")
 
             return self.get_controls()
+
+    def get_sensitivity(self) -> int:
+
+        try:
+
+            sensitvity = self.settings["sensitivity"]
+            return sensitvity
+
+        except KeyError:
+
+            self.init_default_settings()
+
+            print("Sensitivity could not be found in settings.")
+            print("Returning default sensitivity.")
+
+            return self.get_sensitivity()
 
     def get_leader_key(self) -> keyboard.Key:
 

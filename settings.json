@@ -1,18 +1,13 @@
 {
-
-  "leader":"<ctrl_r>",
-  "sensitivity":0.5,
-
-  "controls":{
-
-    "CURSOR_UP":"w",
-    "CURSOR_DOWN":"s",
-    "CURSOR_LEFT":"a",
-    "CURSOR_RIGHT":"d",
-
-    "LEFT_CLICK":"q",
-    "RIGHT_CLICK":"e",
-    "MIDDLE_CLICK":"r"
-  }
-
+    "leader": "<ctrl_r>",
+    "sensitivity": 1,
+    "controls": {
+        "CURSOR_UP": "w",
+        "CURSOR_DOWN": "s",
+        "CURSOR_LEFT": "a",
+        "CURSOR_RIGHT": "d",
+        "LEFT_CLICK": "q",
+        "RIGHT_CLICK": "e",
+        "MIDDLE_CLICK": "r"
+    }
 }

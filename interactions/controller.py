@@ -11,7 +11,7 @@ class Controller():
         self.settings = SettingsLoader()
 
         self.input = KeyboardInput(self.settings.get_leader_key())
-        self.output = MouseOutput()
+        self.output = MouseOutput(self.settings.get_sensitivity())
 
         self.controls = self.settings.get_controls()
 
@@ -25,6 +25,7 @@ class Controller():
         movement_direction = self.get_move_direction(input_buffer)
 
         self.output.move_mouse(movement_direction)
+
 
     def get_move_direction(self, input_buffer) -> Vector2:
 

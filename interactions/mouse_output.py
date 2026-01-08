@@ -5,9 +5,9 @@ from utils.vector2 import Vector2
 
 class MouseOutput():
 
-    def __init__(self):
+    def __init__(self, sensitivity: int):
         self.mouse = Controller()
-        self.sensitivity: Vector2 = Vector2(1, 1)
+        self.sensitivity = sensitivity
         self.pressed_buttons: list[Button] = []
 
     def __del__(self):
@@ -17,8 +17,8 @@ class MouseOutput():
 
     def move_mouse(self, direction: Vector2):
 
-        x_delta = direction.x * self.sensitivity.x
-        y_delta = direction.y * self.sensitivity.y
+        x_delta = direction.x * self.sensitivity
+        y_delta = direction.y * self.sensitivity
 
         self.mouse.move(x_delta, y_delta)
 
