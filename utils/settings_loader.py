@@ -31,7 +31,7 @@ class SettingsLoader():
 
         default_settings = {
             "leader": "<ctrl_r>",
-            "sensitivity": 0.5,
+            "sensitivity": 1,
             "controls": {
 
                 "CURSOR_UP": "w",
