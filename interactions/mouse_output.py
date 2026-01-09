@@ -23,13 +23,19 @@ class MouseOutput():
         self.mouse.move(x_delta, y_delta)
 
     def click(self, button: Button):
-        self.mouse.press(button=button)
-
-        if button not in self.pressed_buttons:
-            self.pressed_buttons.append(button)
-
-    def release(self, button: Button):
-        self.mouse.release(button=button)
 
         if button in self.pressed_buttons:
-            self.pressed_buttons.remove(button)
+            return
+
+        print(self.pressed_buttons)
+
+        self.pressed_buttons.append(button)
+        self.mouse.press(button=button)
+
+    def release(self, button: Button):
+
+        if button not in self.pressed_buttons:
+            return
+
+        self.mouse.release(button=button)
+        self.pressed_buttons.remove(button)

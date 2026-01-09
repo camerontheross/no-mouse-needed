@@ -1,3 +1,5 @@
+from pynput import mouse
+
 from interactions.keyboard_input import KeyboardInput
 from interactions.mouse_output import MouseOutput
 from utils.settings_loader import SettingsLoader
@@ -22,10 +24,14 @@ class Controller():
         if not input_buffer:
             return
 
+        if self.controls["LEFT_CLICK"] in input_buffer:
+            self.output.click(mouse.Button.left)
+        else:
+            self.output.release(mouse.Button.left)
+
         movement_direction = self.get_move_direction(input_buffer)
 
         self.output.move_mouse(movement_direction)
-
 
     def get_move_direction(self, input_buffer) -> Vector2:
 
